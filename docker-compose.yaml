@@ -1,0 +1,45 @@
+version: '3.1'
+
+services:
+
+  user:
+    image: go-api-boilerplate-user:latest
+    restart: always
+    env_file:
+     - .env
+    environment:
+      HTTP_PORT: 3010
+    ports:
+      - 3010:3010
+
+  auth:
+    image: go-api-boilerplate-auth:latest
+    restart: always
+    env_file:
+     - .env
+    environment:
+      HTTP_PORT: 3012
+    ports:
+      - 3012:3012
+
+#  migrate:
+#    image: go-api-boilerplate-migrate:latest
+#    restart: always
+#    env_file:
+#     - .env
+#    environment:
+
+  web:
+    image: go-api-boilerplate-web:latest
+    restart: always
+#    environment:
+    ports:
+      - 3005:3000
+
+  maildev:
+#    image: mdwio/maildev:v1.1.0
+    image: deng0/maildev:v1.1.0
+    restart: always
+    ports:
+      - 1080:1080
+      - 1025:1025

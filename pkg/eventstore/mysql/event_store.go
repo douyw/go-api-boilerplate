@@ -92,7 +92,7 @@ func (s *eventStore) Store(ctx context.Context, events []*domain.Event) error {
 
 	i := lenEvents - 1
 	var err error
-	query += "(?, ?, ?, ?, ?, ?, ?, ?),"
+	query += "(?, ?, ?, ?, ?, ?, ?, ?)"
 	values, err = addEventToInsert(values, events[i])
 	if err != nil {
 		return apperrors.Wrap(err)

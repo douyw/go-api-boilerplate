@@ -12,3 +12,6 @@ vendor
 go-api-boilerplate.code-workspace
 
 .history/
+
+.env
+
